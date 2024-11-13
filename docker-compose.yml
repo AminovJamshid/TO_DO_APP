@@ -3,7 +3,7 @@ services:
         container_name: todolist_web
         image: nginx:alpine  # Use the Nginx image
         ports:
-            - "80:80"  # Map port 8080 on the host to port 80 inside the container
+            - "80:80"  # Map port 8080 on the htodolistt to port 80 inside the container
         volumes:
             - ./:/var/www  # Mount the Laravel application directory
             - ./nginx.conf:/etc/nginx/conf.d/default.conf  # Use our Nginx config
@@ -29,15 +29,15 @@ services:
         expose:
             - 3306
         environment:
-            MYSQL_DATABASE: ${DB_DATABASE}  # Create a database named 'laravel'
-            MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}  # Set the root password for MySQL
+            MYSQL_DATABASE: laravel_vuejs_todolist  # Create a database named 'laravel'
+            MYSQL_ROOT_PASSWORD: root  # Set the root password for MySQL
         volumes:
             - todolist_db:/var/lib/mysql  # Persist MySQL data
         networks:
             - todolist-network  # Connect to the custom network
 # Define the custom network
 networks:
-    todolist-network:  # Create a custom network named 'os-network'
+    todolist-network:  # Create a custom network named 'todolist-network'
         driver: bridge
 
 # Define the volume for MySQL data persistence
