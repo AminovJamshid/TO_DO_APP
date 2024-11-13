@@ -2,8 +2,9 @@
 
 namespace App\Http\Middleware;
 
-use Fideloper\Proxy\TrustProxies as Middleware;
+//use Fideloper\Proxy\TrustProxies as Middleware;
 use Illuminate\Http\Request;
+use Illuminate\Routing\Controllers\Middleware;
 
 class TrustProxies extends Middleware
 {
